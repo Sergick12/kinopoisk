@@ -1,15 +1,15 @@
 require 'rails_helper'
 
-RSpec.describe "movies/show", type: :view do
-  before(:each) do
+RSpec.describe 'movies/show' do
+  before do
     assign(:movie, Movie.create!(
-      name: "Name",
-      description: "Description",
-      age_linit: 2
-    ))
+                     name: 'Name',
+                     description: 'Description',
+                     age_linit: 2
+                   ))
   end
 
-  it "renders attributes in <p>" do
+  it 'renders attributes in <p>' do
     render
     expect(rendered).to match(/Name/)
     expect(rendered).to match(/Description/)
