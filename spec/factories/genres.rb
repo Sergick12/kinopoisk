@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :genre do
-    name { 'MyString' }
+    sequence(:name) { |n| "name genre #{n}" }
   end
 end
