@@ -17,11 +17,11 @@ RSpec.describe '/movies' do
   # Movie. As you add validations to Movie, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) do
-    skip('Add a hash of attributes valid for your model')
+    { 'name' => 'John', 'description' => 'Nice film', 'release_date' => '12-08-2015', 'age_linit' => 15 }
   end
 
   let(:invalid_attributes) do
-    skip('Add a hash of attributes invalid for your model')
+    { 'name' => 'Jo', 'description' => '', 'release_date' => '', 'age_linit' => '' }
   end
 
   describe 'GET /index' do
@@ -86,14 +86,15 @@ RSpec.describe '/movies' do
   describe 'PATCH /update' do
     context 'with valid parameters' do
       let(:new_attributes) do
-        skip('Add a hash of attributes valid for your model')
+        { 'name' => 'JohnNew', 'description' => 'Nice film new', 'release_date' => '12-08-2022', 'age_linit' => 10 }
       end
 
       it 'updates the requested movie' do
         movie = Movie.create! valid_attributes
         patch movie_url(movie), params: { movie: new_attributes }
         movie.reload
-        skip('Add assertions for updated state')
+        get movie_url(movie)
+        expect(response).to be_successful
       end
 
       it 'redirects to the movie' do
