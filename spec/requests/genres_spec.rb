@@ -17,11 +17,11 @@ RSpec.describe '/genres' do
   # Genre. As you add validations to Genre, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) do
-    skip('Add a hash of attributes valid for your model')
+    { 'name' => 'genre' }
   end
 
   let(:invalid_attributes) do
-    skip('Add a hash of attributes invalid for your model')
+    { 'name' => '' }
   end
 
   describe 'GET /index' do
@@ -86,14 +86,15 @@ RSpec.describe '/genres' do
   describe 'PATCH /update' do
     context 'with valid parameters' do
       let(:new_attributes) do
-        skip('Add a hash of attributes valid for your model')
+        { 'name' => 'ganreNew' }
       end
 
       it 'updates the requested genre' do
         genre = Genre.create! valid_attributes
         patch genre_url(genre), params: { genre: new_attributes }
         genre.reload
-        skip('Add assertions for updated state')
+        get edit_genre_url(genre)
+        expect(response).to be_successful
       end
 
       it 'redirects to the genre' do
