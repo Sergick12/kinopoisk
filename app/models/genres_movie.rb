@@ -1,6 +1,6 @@
-class GemresMovie < ApplicationRecord
+class GenresMovie < ApplicationRecord
   belongs_to :movie
-  belongs_to :genres
+  belongs_to :genre
 
   validates :movie_id, uniqueness: { scope: :genre_id }
 end
