@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :genres_movie do
     association :movie
-    association :genre 
+    association :genre
   end
 end
