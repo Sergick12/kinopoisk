@@ -2,9 +2,7 @@
 
 Rails.application.routes.draw do
   resources :genres
-  resources :movies
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
+  resources :movies, shallow: true do
+    resources :genres
+  end
 end
